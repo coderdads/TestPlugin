@@ -7,7 +7,6 @@
 //  MIT Licensed
 //
 
-
 #import "TestPlugin.h"
 #import <Cordova/CDV.h>
 #import <Photos/Photos.h>
@@ -15,17 +14,11 @@
 @implementation TestPlugin
 @synthesize callbackId;
 
-//-(CDVPlugin*) initWithWebView:(UIWebView*)theWebView
-//{
-//    self = (Canvas2ImagePlugin*)[super initWithWebView:theWebView];
-//    return self;
-//}
 - (void)multiTag:(CDVInvokedUrlCommand*)command
 {
     self.callbackId = command.callbackId;
     
-    // get image from arguments path
-    // TODO: FIgure out why image in null
+    // get List of images from arguments path
     NSString* imagePaths = [command.arguments objectAtIndex:0];
     self.imagesToProcess = [[NSJSONSerialization JSONObjectWithData:[imagePaths dataUsingEncoding:NSUTF8StringEncoding]
         options:kNilOptions
@@ -36,11 +29,6 @@
     self.style = [command.arguments objectAtIndex:2];
     self.size = [command.arguments objectAtIndex:3];
     self.price = [command.arguments objectAtIndex:4];
-
-    NSLog([NSString stringWithFormat:@"watermark text: %@", self.watermark]);
-    NSLog([NSString stringWithFormat:@"style text: %@", self.style]);
-    NSLog([NSString stringWithFormat:@"size text: %@", self.size]);
-    NSLog([NSString stringWithFormat:@"price text: %@", self.price]);
 
     // start tagging and saving first image
     [self processImage];
@@ -56,6 +44,7 @@
     }
     else
     {
+        // process the last image in the list
         NSString* imagePath = [self.imagesToProcess lastObject];
         imagePath = [imagePath stringByReplacingOccurrencesOfString:@"file://"
          withString:@""];
@@ -76,8 +65,9 @@
         [watermarkAttributes setObject: [[UIColor blackColor] colorWithAlphaComponent:0.75f] forKey: NSBackgroundColorAttributeName];
 
         // create a size object to measure the watermark for placement
+        int watermarkPadding = image.size.height/16;
         CGSize watermarkSize = [self.watermark sizeWithAttributes:watermarkAttributes];
-        [self.watermark drawAtPoint:CGPointMake(15, image.size.height - watermarkSize.height - 15) withAttributes:watermarkAttributes];
+        [self.watermark drawAtPoint:CGPointMake(watermarkPadding, image.size.height - watermarkSize.height - watermarkPadding) withAttributes:watermarkAttributes];
 
         // set up font options for tags
         NSDictionary *tagAttributes = [NSMutableDictionary dictionary];
@@ -146,6 +136,7 @@
 - (void)dealloc
 {	
 	[callbackId release];
+    [imagesToProcess release];
     [super dealloc];
 }
 

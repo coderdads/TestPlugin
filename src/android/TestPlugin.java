@@ -23,7 +23,7 @@ import android.util.Log;
  * TestPlugin.java
 **/
 public class TestPlugin extends CordovaPlugin {
-	public static final String TEST_ACTION = "test";
+	public static final String TEST_ACTION = "multiTag";
 
 	@Override
 	public boolean execute(String action, JSONArray data,
