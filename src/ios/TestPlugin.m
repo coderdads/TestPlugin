@@ -107,6 +107,7 @@
         UIGraphicsEndImageContext();
 
         // save image to camera roll
+        // TODO: look into using performChangesAndWait to make calls synchronously
         [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^
         {
             PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:newImage];
