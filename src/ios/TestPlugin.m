@@ -136,7 +136,7 @@
 - (void)dealloc
 {	
 	[callbackId release];
-    [imagesToProcess release];
+    [_imagesToProcess release];
     [super dealloc];
 }
 
