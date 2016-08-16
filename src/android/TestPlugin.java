@@ -23,7 +23,8 @@ import android.util.Log;
  * TestPlugin.java
 **/
 public class TestPlugin extends CordovaPlugin {
-	public static final String TEST_ACTION = "multiTag";
+	public static final String TEST_ACTION = "test";
+	public static final String MULTITAG_ACTION = "multiTag";
 
 	@Override
 	public boolean execute(String action, JSONArray data,
@@ -55,6 +56,37 @@ public class TestPlugin extends CordovaPlugin {
 			}
 			
 			return true;
+		} else if (action.equals(MULTITAG_ACTION)){
+
+			String imagePaths = data.optString(0);
+			Log.d("TestPlugin", imagePaths);
+			// convert json string image Paths to array of string
+			JSONArray files = new JSONArray(imagePaths);
+							
+			String watermark = data.optString(1);
+			String style = data.optString(2);
+			String size = data.optString(3);
+			String price = data.optString(4);
+
+			Log.d("TestPlugin", watermark);
+			Log.d("TestPlugin", style);
+			Log.d("TestPlugin", size);
+			Log.d("TestPlugin", imagePaths);
+			// loop through the images to tag and save
+			for (int i=0; i<files.length(); i++){
+				//load the file
+				Log.d("TestPlugin", files.optString(i));
+				//save the file
+				//File imageFile = savePhoto(bmp);
+				//if (imageFile == null)
+			//		callbackContext.error("There was an unexpected error processing files.");
+
+				//update the image gallery
+			//	scanPhoto(imageFile);
+			}
+		
+			// great success
+			callbackContext.success(imageFile.toString());
 		} else {
 			return false;
 		}
