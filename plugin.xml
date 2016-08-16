@@ -1,0 +1,54 @@
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.coderdads.TestPlugin"
+    version="0.1.0">
+
+    <name>Test</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <description>This is a test plugin.</description>
+    <author>Coder Dads, LLC. - dads@coderdads.com</author>
+    <keywords>canvas,image,photo library</keywords>
+
+    <license>MIT</license>
+
+    <js-module src="www/TestPlugin.js" name="TestPlugin">
+        <clobbers target="window.testPlugin" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="TestPlugin">
+                <param name="ios-package" value="TestPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/TestPlugin.h" />
+
+        <source-file src="src/ios/TestPlugin.m"
+            compiler-flags="-fno-objc-arc" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="TestPlugin" >
+            <param name="android-package" value="com.coderdads.TestPlugin.TestPlugin"/>
+          </feature>
+        </config-file>
+
+        <source-file src="src/android/TestPlugin.java" 
+            target-dir="src/com/coderdads/TestPlugin" />
+
+    </platform>
+</plugin>

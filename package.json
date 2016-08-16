@@ -1,0 +1,40 @@
+{
+  "name": "cordova-plugin-test",
+  "version": "0.1.0",
+  "description": "This is a test plugin",
+  "cordova": {
+    "id": "com.coderdads.TestPlugin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderdads/TestPlugin.git"
+  },
+  "keywords": [
+    "canvas",
+    "image",
+    "photo library",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": {
+    "name": "Coder Dads, LLC.",
+    "email": "dads@coderdads.com",
+    "url": "http://coderdads.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coderdads/TestPlugin/issues"
+  },
+  "homepage": "https://github.com/coderdads/TestPlugin#readme"
+}
