@@ -59,7 +59,7 @@
         [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
 
         // set up font options for watermark
-        NSDictionary *watermarkAttributes = [NSMutableDictionary dictionary];
+        NSMutableDictionary *watermarkAttributes = [NSMutableDictionary dictionary];
         [watermarkAttributes setObject: [UIFont fontWithName:@"Avenir Book" size:30] forKey: NSFontAttributeName];
         [watermarkAttributes setObject: [UIColor whiteColor] forKey: NSForegroundColorAttributeName];
         [watermarkAttributes setObject: [[UIColor blackColor] colorWithAlphaComponent:0.75f] forKey: NSBackgroundColorAttributeName];
@@ -70,7 +70,7 @@
         [self.watermark drawAtPoint:CGPointMake(watermarkPadding, image.size.height - watermarkSize.height - watermarkPadding) withAttributes:watermarkAttributes];
 
         // set up font options for tags
-        NSDictionary *tagAttributes = [NSMutableDictionary dictionary];
+        NSMutableDictionary *tagAttributes = [NSMutableDictionary dictionary];
         [tagAttributes setObject: [UIFont fontWithName:@"Verdana" size:45] forKey: NSFontAttributeName];
         [tagAttributes setObject: [UIColor blackColor] forKey: NSForegroundColorAttributeName];
         //[tagAttributes setObject: [[UIColor whiteColor] colorWithAlphaComponent:0.75f] forKey: NSBackgroundColorAttributeName];
