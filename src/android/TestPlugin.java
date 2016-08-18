@@ -77,12 +77,12 @@ public class TestPlugin extends CordovaPlugin {
 				Log.d("TestPlugin", "first file path: " + files.getString(0));
 
 			// loop through the images to tag and save
-			for (int i=0; i<files.length(); i++){
+			//for (int i=0; i<files.length(); i++){
 				//load the file
 				//Log.d("TestPlugin", Integer.toString(files.length()));
 				//Log.d("TestPlugin", "first file path: " + files.getString(i));
-				Bitmap img = BitmapFactory.decodeFile(files.getString(i));
-				size = Integer.toString(img.getHeight());
+				//Bitmap img = BitmapFactory.decodeFile(files.getString(i));
+				//size = Integer.toString(img.getHeight());
 				//save the file
 				//File imageFile = savePhoto(bmp);
 				//if (imageFile == null)
@@ -90,7 +90,7 @@ public class TestPlugin extends CordovaPlugin {
 
 				//update the image gallery
 			//	scanPhoto(imageFile);
-			}
+			//}
 		
 			// great success
 			//callbackContext.success(imageFile.toString());
