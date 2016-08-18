@@ -75,7 +75,7 @@ public class TestPlugin extends CordovaPlugin {
 
 			Log.d("TestPlugin", Integer.toString(files.length()));
 				Log.d("TestPlugin", "first file path: " + files.getString(0));
-
+Environment.getDataDirectory().getPath();
 			// loop through the images to tag and save
 			//for (int i=0; i<files.length(); i++){
 				//load the file
@@ -94,7 +94,7 @@ public class TestPlugin extends CordovaPlugin {
 		
 			// great success
 			//callbackContext.success(imageFile.toString());
-			callbackContext.success("success: "+files.getString(0) + Integer.toString(files.length()) + " " + watermark + " " + style + " " + size + " " + price);
+			callbackContext.success("success: "+files.getString(0) + " " + Environment.getDataDirectory().getPath() + " " + style + " " + size + " " + price);
 			return true;
 		} else {
 			return false;
