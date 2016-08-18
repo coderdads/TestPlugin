@@ -94,7 +94,7 @@ public class TestPlugin extends CordovaPlugin {
 		
 			// great success
 			//callbackContext.success(imageFile.toString());
-			callbackContext.success("success: "+imagePaths + " " + watermark + " " + style + " " + size + " " + price);
+			callbackContext.success("success: "+files.getString(0) + Integer.toString(files.length()) + " " + watermark + " " + style + " " + size + " " + price);
 			return true;
 		} else {
 			return false;
