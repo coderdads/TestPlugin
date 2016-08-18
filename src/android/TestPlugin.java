@@ -76,7 +76,7 @@ public class TestPlugin extends CordovaPlugin {
 			for (int i=0; i<files.length(); i++){
 				//load the file
 				Log.d("TestPlugin", files.optString(i));
-				Bitmap img = BitmapFactory.decodeFile(files.optString(i).replace("file://","'"));
+				Bitmap img = BitmapFactory.decodeFile(files.getString(i).replace("file://","'"));
 				size = Integer.toString(img.getHeight());
 				//save the file
 				//File imageFile = savePhoto(bmp);
